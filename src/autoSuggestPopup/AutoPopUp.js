@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import './autoStyle.css'
 export default function AutoPopUp() {
 
     const [suggessions, setSuggessions] = useState([]);
@@ -37,13 +37,13 @@ export default function AutoPopUp() {
 
     const getSuggestions = () => {
         if (suggessions.length === 0 && searchText !== "" && !resfound) {
-            return <p>Search Content Not Found</p>;
+            return <p class="text-danger">Search Content Not Found</p>;
         }
         return (
-            <ul>
+            <ul >
                 {suggessions.map((item, index) => {
                     return (
-                        <div key={index}>
+                        <div key={index} >
                             <li onClick={() => suggestedText(item)} type='none'>{item}</li>
                             <hr />
                         </div>
@@ -59,22 +59,23 @@ export default function AutoPopUp() {
 
     return (
 
-        <div>
+        <div >
 
             <div>
-                <h1> Click Here For Search</h1>
+                <h1 class="font-italic"> Click Here For Search</h1>
             </div><br />
-
-            <div >
-                {show ? <div> <input placeholder='enter country' type='text' onChange={e => onChangeHandler(e.target.value)} value={searchText} /></div> : null}
-            </div> <br />
 
             <div>
                 <button class="btn btn-info" onClick={() => setShow(true)}>Open PopUp</button>
-            </div>
+            </div><br />
 
+
+            <div  >
+                {show ? <div> <input className="search" placeholder='enter country name' type='text' onChange={e => onChangeHandler(e.target.value)} value={searchText} /></div> : null}
+            </div> <br />
 
             {getSuggestions()}
+            
         </div>
     )
 }

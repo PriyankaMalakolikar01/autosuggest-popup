@@ -6,7 +6,7 @@ import AutoPopUp from './autoSuggestPopup/AutoPopUp';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
 
       {/* <Darrk_Light/> */}
     
